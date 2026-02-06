@@ -23,7 +23,8 @@ export default function CodeEditor({ initialCode = "# Escribe tu código aquí\n
             .then(() => setIsPyodideLoading(false))
             .catch((err) => {
                 console.error("Failed to load Pyodide", err);
-                setOutput((prev) => [...prev, "Error: Failed to load Python environment."]);
+                const message = err instanceof Error ? err.message : String(err);
+                setOutput((prev) => [...prev, `Error: Failed to load Python environment: ${message}`]);
             });
     }, []);
 

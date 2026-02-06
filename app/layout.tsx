@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+import AITutor from "@/components/AITutor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,6 +30,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <AITutor code="" consoleOutput={[]} />
+        <Script src="https://cdn.jsdelivr.net/pyodide/v0.29.3/full/pyodide.js" strategy="beforeInteractive" />
       </body>
     </html>
   );

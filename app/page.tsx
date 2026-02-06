@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Terminal, Brain, Rocket, Code2 } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -30,9 +31,11 @@ export default function Home() {
         </p>
 
         <div className="flex flex-row gap-4 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          <Button size="lg" className="text-lg">
-            Empezar Curso
-          </Button>
+          <Link href="/course/what-is-python">
+            <Button size="lg" className="text-lg">
+              Empezar Curso
+            </Button>
+          </Link>
           <Button variant="glass" size="lg" className="text-lg">
             Ver Temario
           </Button>

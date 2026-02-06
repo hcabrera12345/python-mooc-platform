@@ -1,0 +1,10 @@
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": "Hola"
+        }
+    ],
+    "code": "print('test')",
+    "consoleOutput": ""
+}

@@ -1,89 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  /* Futuristic Dark Theme Palette */
-  --background: #09090b; /* Zinc 950 - Deep black */
-  --foreground: #fafafa; /* Zinc 50 */
-  
-  --primary: #7c3aed; /* Violet 600 */
-  --primary-foreground: #ffffff;
-  
-  --secondary: #06b6d4; /* Cyan 500 */
-  --secondary-foreground: #ffffff;
-  
-  --accent: #f43f5e; /* Rose 500 */
-  --accent-foreground: #ffffff;
-  
-  --muted: #27272a; /* Zinc 800 */
-  --muted-foreground: #a1a1aa; /* Zinc 400 */
-  
-  --card: #18181b; /* Zinc 900 */
-  --card-foreground: #fafafa;
-  
-  --border: #27272a; /* Zinc 800 */
-  --input: #27272a;
-  
-  --radius: 0.5rem;
-}
+@theme {
+  --color-background: hsl(240 10% 4%);
+  --color-foreground: hsl(0 0% 98%);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  
-  --color-border: var(--border);
-  --color-input: var(--input);
-  
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
-  /* Animations */
+  --color-card: hsl(240 10% 6%);
+  --color-card-foreground: hsl(0 0% 98%);
+
+  --color-popover: hsl(240 10% 4%);
+  --color-popover-foreground: hsl(0 0% 98%);
+
+  --color-primary: hsl(252 87% 67%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(190 90% 50%);
+  --color-secondary-foreground: hsl(240 10% 4%);
+
+  --color-muted: hsl(240 4% 16%);
+  --color-muted-foreground: hsl(240 5% 65%);
+
+  --color-accent: hsl(240 4% 16%);
+  --color-accent-foreground: hsl(0 0% 98%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  --color-border: hsl(240 6% 15%);
+  --color-input: hsl(240 6% 15%);
+  --color-ring: hsl(252 87% 67%);
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  
-  @keyframes accordion-down {
-    from { height: 0 }
-    to { height: var(--radix-accordion-content-height) }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0
   }
-  @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height) }
-    to { height: 0 }
+
+  to {
+    height: var(--radix-accordion-content-height)
   }
 }
 
-/* Base Styles */
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  @apply antialiased selection:bg-primary/20 selection:text-primary;
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height)
+  }
+
+  to {
+    height: 0
+  }
 }
 
-/* Glassmorphism Utilities */
-.glass {
-  background: rgba(24, 24, 27, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+  }
 }
 
 .glass-card {
